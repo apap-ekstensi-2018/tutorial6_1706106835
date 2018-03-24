@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/fragment :: head">
+        <title id="pageTitle">View All Students</title>
+    </head>
+    <body>
+        <h1>All Students</h1>
+     
+  <table id="example" class="display" style="width:100%">
+    <thead>
+    		<tr>
+    			<th>NPM</th>
+    			<th>Name</th>
+    			<th>GPA</th>
+    		</tr>
+    </thead>
+
+      </table>
+    </body>
+    
+    <script>
+    		$(document).ready(function() {
+    			 $('#example').DataTable({
+    				 "processing" : true,
+    				 "serverSide" : true,
+    			        "ajax" : {
+    			            "url" : "../student/data",
+    			            dataSrc : ''
+    			        },
+    			        "columns" : [ {
+    			            "data" : "npm"
+    			        }, {
+    			            "data" : "name"
+    			        }, {
+    			            "data" : "gpa"
+    			        }
+    			        ]
+    			    });
+    		});
+    </script>
+</html>
